@@ -8,22 +8,19 @@ package com.company;
  */
 // Car is Immutable class
 final public class Car {
-     private final int productionYear;
-     private final String model;
-     private final String mark;
-     private final Engine engine;
+    private final int productionYear;
+    private final String model;
+    private final String mark;
+    private final Engine engine;
 
-     // Тhe constructor takes a mutable object "engine" ,
+    // Тhe constructor takes a mutable object "engine" ,
     // if we want to create immutable object we must have to make a defensive copy in the constructor
 
     public Car(int productionYear, String model, String mark, Engine engine) {
         this.productionYear = productionYear;
         this.model = model;
         this.mark = mark;
-        this.engine = new Engine();
-        this.engine.setHorsePower(engine.getHorsePower());
-        this.engine.setMileage(engine.getMileage());
-        this.engine.setWeight(engine.getWeight());
+        this.engine = Engine.copy(engine);
     }
 
     public int getProductionYear() {
@@ -39,10 +36,6 @@ final public class Car {
     }
 
     public Engine getEngine() {
-        Engine clone = new Engine();
-        clone.setHorsePower(engine.getHorsePower());
-        clone.setMileage(engine.getMileage());
-        clone.setWeight(engine.getWeight());
-        return clone;
+        return Engine.copy(engine);
     }
 }

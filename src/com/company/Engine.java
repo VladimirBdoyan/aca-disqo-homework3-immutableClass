@@ -16,6 +16,14 @@ public class Engine {
         this.weight = weight;
         this.mileage = mileage;
     }
+    // Defensive copy
+    public static Engine copy ( Engine engine){
+        Engine clone = new Engine();
+        clone.setHorsePower(engine.getHorsePower());
+        clone.setWeight(engine.getWeight());
+        clone.setMileage(engine.getMileage());
+        return clone;
+    }
 
     public Engine() {
 
