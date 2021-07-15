@@ -16,17 +16,16 @@ public class Engine {
         this.weight = weight;
         this.mileage = mileage;
     }
-    // Defensive copy
-    public static Engine copy ( Engine engine){
+    // Defensive copy - Is create new object and that fields initialize class object fields
+    protected Engine copy(){
         Engine clone = new Engine();
-        clone.setHorsePower(engine.getHorsePower());
-        clone.setWeight(engine.getWeight());
-        clone.setMileage(engine.getMileage());
+        clone.setHorsePower(this.horsePower);
+        clone.setWeight(this.weight);
+        clone.setMileage(this.mileage);
         return clone;
     }
 
     public Engine() {
-
     }
 
     public int getHorsePower() {

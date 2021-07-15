@@ -20,7 +20,7 @@ final public class Car {
         this.productionYear = productionYear;
         this.model = model;
         this.mark = mark;
-        this.engine = Engine.copy(engine);
+        this.engine = engine.copy();
     }
 
     public int getProductionYear() {
@@ -36,6 +36,6 @@ final public class Car {
     }
 
     public Engine getEngine() {
-        return Engine.copy(engine);
+        return engine.copy();
     }
 }
